@@ -1,6 +1,7 @@
 package hoods.com.calculator
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,6 +17,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val infix = "20+3*2(2-4)"
+            val result = InfixToPostFix().postFixConversion(infix)
+            Log.i("MainActivity", "onCreate:The postFIx is $result")
             CalculatorTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(),
